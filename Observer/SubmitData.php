@@ -21,12 +21,15 @@ class SubmitData implements \Magento\Framework\Event\ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         //get data
-        $date = $this->_checkoutSession->getDate();
-        $comment = $this->_checkoutSession->getComment();
+        $date = $this->_checkoutSession->getData('delivery_date');
+        $comment = $this->_checkoutSession->getData('delivery_comment');
 
         //get data from event observer
         $order = $observer->getEvent()->getOrder();
-        $order->setData('delivery_comment', $comment);
+        // var_dump($order);
+        // die;
+
+        $order->setData('delivery_note', $comment);
         $order->setData('delivery_date', $date);
         $order->save();
     }

@@ -43,9 +43,11 @@ class SaveData extends \Magento\Framework\App\Action\Action
         //get data
         $data = $this->getRequest()->getContent();
         $response = $this->_json->unserialize($data);
-
         //set session data
-        $date = $this->_checkoutSession->setDate($response['date']);
-        $comment = $this->_checkoutSession->setComment($response['comment']);
+        $this->_checkoutSession->setData('delivery_date',($response['date']));
+        $this->_checkoutSession->setData('delivery_comment',($response['comment']));
+
+        var_dump($response);
+        return;
     }
 }

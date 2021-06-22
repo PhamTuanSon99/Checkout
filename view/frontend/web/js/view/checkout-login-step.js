@@ -32,7 +32,7 @@ define(
             isVisible: ko.observable(true),
             isLogedIn: customer.isLoggedIn(),
             //step code will be used as step content id in the component template
-            stepCode: 'isLogedCheck',
+            stepCode: 'delivery',
             //step title value
             stepTitle: 'Delivery Step',
 
@@ -84,14 +84,15 @@ define(
 
                 //set URL
                 //frontName->Controller->Action
-                var url = urlBuilder.build('checkout/index/savedata');
+                var url = urlBuilder.build('delivery/index/savedata');
 
                 return storage.post(
                     url,
                     JSON.stringify({ date: date, comment: comment }), //convert json to string
                     false
-                ).done(function (respone) {
+                ).done(function (response) {
                     //get to the next step
+                    console.log(response);
                     stepNavigator.next();
                 }).fail(function () {
                     //log data
