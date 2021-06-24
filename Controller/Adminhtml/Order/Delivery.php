@@ -31,11 +31,11 @@ class Delivery extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-         /** @var \Magento\Framework\View\Result\Page $resultPage */
-         $resultPage = $this->_pageaFctory->create();
-         $resultPage->getConfig()->getTitle()->prepend(__(static::PAGE_TITLE));
+        /** @var \Magento\Framework\View\Result\Page $resultPage */
+        $resultPage = $this->_pageaFctory->create();
+        $resultPage->getConfig()->getTitle()->prepend(__(static::PAGE_TITLE));
 
-         return $resultPage;
+        return $resultPage;
     }
 
     /**
