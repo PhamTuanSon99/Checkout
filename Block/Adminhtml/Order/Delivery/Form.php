@@ -122,12 +122,12 @@ class Form extends \Magento\Sales\Block\Adminhtml\Order\Create\Form\AbstractForm
             ]
         );
         $fieldset->addField(
-            'delivery_comment',
+            'delivery_note',
             'textarea',
             [
                 'name' => 'comment',
                 'label' => __('Delivery comment'),
-                'value' => $this->getOrder()->getDeliveryComment(),
+                'value' => $this->getOrder()->getDeliveryNote(),
                 'rows' =>10,
                 'disabled' => 'disabled'
             ]
